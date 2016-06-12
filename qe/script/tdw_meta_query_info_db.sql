@@ -61,6 +61,7 @@ CREATE TABLE tdw_ddl_query_info (
     querystring character varying,
     username character varying,
     dbname character varying,
+    sessionname character varying,
     ip character varying,
     queryresult boolean,
     taskid character varying
