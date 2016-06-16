@@ -41,6 +41,7 @@ CREATE TABLE tdw_query_info_new (
     querystring character varying DEFAULT NULL::character varying,
     starttime timestamp without time zone DEFAULT now() NOT NULL,
     username character varying(128) DEFAULT NULL::character varying,
+    sessionname character varying,
     ip character varying(256) DEFAULT NULL::character varying,
     taskid character varying(256) DEFAULT NULL::character varying,
 	port character varying(128),
@@ -61,6 +62,7 @@ CREATE TABLE tdw_ddl_query_info (
     querystring character varying,
     username character varying,
     dbname character varying,
+    sessionname character varying,
     ip character varying,
     queryresult boolean,
     taskid character varying
@@ -122,6 +124,7 @@ CREATE TABLE tdw_query_stat_new (
     currmrindex integer NOT NULL,
     currmrstarttime timestamp without time zone DEFAULT now() NOT NULL,
     queryid character varying(128) DEFAULT NULL::character varying NOT NULL,
+    sessionname character varying,
     jtip character varying
 );
 
@@ -147,6 +150,7 @@ CREATE TABLE tdw_query_error_info_new
   queryid character varying(128) NOT NULL,
   taskid character varying(256) DEFAULT NULL::character varying,
   errortime timestamp without time zone NOT NULL DEFAULT now(),
+  sessionname character varying,
   ip character varying(256) DEFAULT NULL::character varying,
   port character varying(128) DEFAULT NULL::character varying,
   clientip character varying(256) DEFAULT NULL::character varying,
